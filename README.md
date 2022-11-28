@@ -12,3 +12,6 @@
 #Super Hero Game
 # Play as one of three super heros and save the city! Collect civlians as fly through the city, be careful not to hit the bombs!
 # Save as many as you can before the time is up. Use W,A,S,D to move and SPACE to shoot your lasers, don't hit the civilians!
+
+#Super Hero Game Source
+# The Unity Project along with all of the assets are available to look at.
