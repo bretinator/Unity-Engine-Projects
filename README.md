@@ -1,6 +1,6 @@
 # Welcome to my Unity Engine Projects!
 
-# SNAKE CLONE
+#SNAKE CLONE
 # Snake Clone is a recreation of the classic snake game. You move with up,down,left,right or W,A,S,D
 
 #ENDLESS TUNNEL RUNNER
