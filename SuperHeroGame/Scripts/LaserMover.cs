@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/* 
+ * Handles laser phsyics and other behaviours.
+ * Bret Shepard
+*/
+
 public class LaserMover : MonoBehaviour
 {
     public AudioSource audioSource;
