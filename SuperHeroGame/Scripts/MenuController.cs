@@ -4,6 +4,12 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
+/* 
+ * Handles switching character models, names, and song themes
+ * as well as initializing that data.
+ * Bret Shepard
+*/
+
 public class MenuController : MonoBehaviour
 {
     public CharacterSelection characterSelection;
