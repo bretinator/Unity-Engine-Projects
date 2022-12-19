@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/* 
+ * Rotates the character models at the Main Menu
+*/
+
 public class CharacterRotater : MonoBehaviour
 {
     public float rotationSpeed;
