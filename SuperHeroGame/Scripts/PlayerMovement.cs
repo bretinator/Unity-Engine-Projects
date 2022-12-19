@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
+/* 
+ * Handles player movement and physics logic.
+ * Also handles player shooting and setting
+ * some character data.
+ * Bret Shepard
+*/
+
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
@@ -26,12 +33,6 @@ public class PlayerMovement : MonoBehaviour
     private float yThrow;
     private float laserTimer;
     public bool isLaserReady = true;
-    public int civsSaved = 0;
-    public float bombsDestroyed = 0;
-    public float civsKilled = 0;
-    public int bombsCollided = 0;
-    public int bombsMissed = 0;
-    public int civsMissed = 0;
     public float gameTimer = 0;
     public GameObject Glacier;
     public GameObject Pirate;
@@ -134,7 +135,6 @@ public class PlayerMovement : MonoBehaviour
         if (collision.transform.tag == "Civ")
         {
             audioSource.PlayOneShot(dingSound);
-            civsSaved += 1;
             Destroy(collision.gameObject);
         }
         else if (collision.transform.tag == "Bomb")
@@ -145,10 +145,10 @@ public class PlayerMovement : MonoBehaviour
             newSparks.transform.parent = collision.transform;
             collision.transform.GetComponent<SphereCollider>().enabled = false;
             collision.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
-            bombsCollided += 1;
         }
     }
 
+    /*
     public void CreateDataFile()
     {
         if (!Directory.Exists("C:\\Data\\TakeFlight"))
@@ -232,4 +232,5 @@ public class PlayerMovement : MonoBehaviour
         File.WriteAllText("C:\\Data\\TakeFlight\\stats.txt", characterIDText + civsSavedText + civsNotSavedText + bombsDestroyedText + bombsNotDestroyedText);
         Debug.Log("Data file output");
     }
+    */
 }
