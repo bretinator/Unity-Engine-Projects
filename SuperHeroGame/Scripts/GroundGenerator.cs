@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/* 
+ * Handles instantiation, positioning, and translation of game tiles.
+ * Bret Shepard
+*/
+
 public class GroundGenerator : MonoBehaviour
 {
     public DecreaseTime decreaseTime;
