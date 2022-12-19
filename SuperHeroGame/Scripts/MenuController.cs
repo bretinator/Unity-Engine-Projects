@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 /* 
  * Handles switching character models, names, and song themes
- * as well as initializing that data.
+ * as well as initializing that data. Also handles functions
+ * to perform based on user button clicks.
  * Bret Shepard
 */
 
