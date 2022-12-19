@@ -1,5 +1,5 @@
 # Projects
-# Welcome to my projects! This mostly consist of games I've created with the Unity Engine
+# Welcome to my Unity Engine Projects!
 
 # SNAKE CLONE
 # Snake Clone is a recreation of the classic snake game. You move with up,down,left,right or W,A,S,D
@@ -13,5 +13,5 @@
 # Play as one of three super heros and save the city! Collect civlians as fly through the city, be careful not to hit the bombs!
 # Save as many as you can before the time is up. Use W,A,S,D to move and SPACE to shoot your lasers, don't hit the civilians!
 
-#Super Hero Game Source
+#Super Hero Game Scripts
 # The Unity Project along with all of the assets are available to look at.
