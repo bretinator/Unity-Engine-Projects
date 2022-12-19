@@ -4,6 +4,7 @@ using UnityEngine;
 
 /* 
  * Rotates the character models at the Main Menu
+ * Bret Shepard
 */
 
 public class CharacterRotater : MonoBehaviour
