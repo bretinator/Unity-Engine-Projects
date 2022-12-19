@@ -1,4 +1,3 @@
-# Projects
 # Welcome to my Unity Engine Projects!
 
 # SNAKE CLONE
@@ -14,4 +13,4 @@
 # Save as many as you can before the time is up. Use W,A,S,D to move and SPACE to shoot your lasers, don't hit the civilians!
 
 #Super Hero Game Scripts
-# The Unity Project along with all of the assets are available to look at.
+# All of the code for Super Hero Game
