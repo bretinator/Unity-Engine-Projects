@@ -353,7 +353,10 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Scripts/Citizen.cs"
+"Assets/Scripts/CitizensController.cs"
 "Assets/Scripts/Food.cs"
+"Assets/Scripts/ResourceStorage.cs"
+"Assets/Scripts/UIController.cs"
 -langversion:9.0
 
 /deterministic

@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * This program represents a citizen of the player's kingdom.
+ * Represents a citizen of the player's kingdom.
  * The citizen gets hungrier over time and eventually dies of starvation.
  * Bret Shepard - 12/18/2022
 */
 
 public class Citizen : MonoBehaviour
 {
-    private float _hungerMeter = 100.00f;
+    private bool isRunning = true;
+    private bool isEating = false;
+
+    private PopulationController populationController;
+    public float _hungerMeter = 100.00f;
     public float HungerMeter
     {
         get { return _hungerMeter; }
@@ -22,60 +26,69 @@ public class Citizen : MonoBehaviour
         }
     }
 
-    private Food[] foods = new Food[8];
+    private void Awake()
+    {
+        populationController = GameObject.FindGameObjectWithTag("CitizensController").GetComponent<PopulationController>();
+    }
 
     private void Start()
     {
+        StartCoroutine(nameof(PrintHunger));
         StartCoroutine(nameof(HungerIncrease));
     }
 
     private void Update()
     {
-        StartCoroutine(nameof(PrintHunger));
+        if (HungerMeter == 0.00f && !isEating) // Starts eating when hunger is at minimum amount.
+        {
+            Eat();
+        }
     }
 
-    public void Eat(Food food) // Eating has not been implemented yet.
+    public void Eat() // Eats until full or until food runs out.
     {
-        switch (food.GetFoodType())
+        isEating = true;
+        while (HungerMeter < 100.00f && ResourceStorage.GetFoodItemCount() > 0)
         {
-            case Food.FoodType.Bread:
-                _hungerMeter += 10.00f;
-                break;
-            case Food.FoodType.Fruit:
-                _hungerMeter += 10.00f;
-                break;
-            case Food.FoodType.Vegetable:
-                _hungerMeter += 10.00f;
-                break;
-            case Food.FoodType.Meat:
-                _hungerMeter += 10.00f;
-                break;
+            ResourceStorage.AddFoodItemCount(-1);
+            HungerMeter += 10.00f;
         }
+        isEating = false;
+
+        if (HungerMeter > 0.00f)
+        {
+            StartCoroutine(nameof(HungerIncrease));
+        }
+    }
+
+    public void Die()
+    {
+        isRunning = false;
+        populationController.SubtractCivFromPopulation();
     }
 
     public IEnumerator HungerIncrease()
     {
-        while (_hungerMeter > 0.00f)
+        while (HungerMeter > 0.00f && !isEating)
         {
             yield return new WaitForSeconds(1.0f);
-            _hungerMeter -= 25.00f;
-
-            if (_hungerMeter == 0.00f)
-            {
-                Debug.Log("The citizen is hungry.");
-                yield return new WaitForSeconds(5.00f);
-                Debug.Log("The citizen has died of hunger.");
-            }
+            HungerMeter -= 25.00f;
         }
     }
 
     private IEnumerator PrintHunger()
     {
-        if (_hungerMeter > 0.00f)
+        while (isRunning)
         {
-            Debug.Log(_hungerMeter);
+            if (HungerMeter > 0.00f)
+            {
+                Debug.Log(HungerMeter);
+                yield return new WaitForSecondsRealtime(0.5f);
+            }
+            else
+            {
+                yield return null;
+            }
         }
-        
-        yield return null;
     }
 }
